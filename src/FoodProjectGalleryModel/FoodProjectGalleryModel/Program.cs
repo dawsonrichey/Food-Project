@@ -14,33 +14,76 @@ namespace FoodProjectGalleryModel
 		{
 			using (var context = new Context())
 			{
-				var department = new Department()
+				var department1 = new Department()
 				{
 					Title = "Produce"
 				};
-				context.FoodItems.Add(new FoodItem()
+				var department2 = new Department()
 				{
-					Department = department,
+					Title = "Dairy"
+				};
+				var reciepe1 = new Reciepe()
+				{
+					Name = "Mac&Cheese"
+				};
+				var reciepe2 = new Reciepe()
+				{
+					Name = "Fruit Salad"
+				};
+				var reciepe3 = new Reciepe()
+				{
+					Name = "PB&J"
+				};
+				var foodItem1 = new FoodItem()
+				{
+					Department = department1,
 					FoodName = "Banana",
 					ItemNumber = 1,
 					PublishedOn = DateTime.Today
-				});
-				context.FoodItems.Add(new FoodItem()
+				};
+				foodItem1.Reciepes.Add(reciepe1);
+				foodItem1.Reciepes.Add(reciepe2);
+
+				var foodItem2 = new FoodItem()
 				{
-					Department = department,
+					Department = department2,
 					FoodName = "Orange",
 					ItemNumber = 2,
 					PublishedOn = DateTime.Today
-				});
+				};
+				foodItem2.Reciepes.Add(reciepe1);
+				foodItem2.Reciepes.Add(reciepe2);
+
+				var foodItem3 = new FoodItem()
+				{
+					Department = department1,
+					FoodName = "Bread",
+					ItemNumber = 3,
+					PublishedOn = DateTime.Today
+				};
+				foodItem3.Reciepes.Add(reciepe1);
+				foodItem3.Reciepes.Add(reciepe3);
+
+
+				context.FoodItems.Add(foodItem1);
+				context.FoodItems.Add(foodItem2);
+				context.FoodItems.Add(foodItem3);
 				context.SaveChanges();
 
 				var foodItems = context.FoodItems
 					.Include(fi => fi.Department)
+					.Include(fi => fi.Reciepes)
+		
 					.ToList();
 
 				foreach (var foodItem in foodItems)
 				{
+					var reciepeNames = foodItem.Reciepes.Select(a => a.Name).ToList();
+					var reciepesDisplayText = string.Join(", ", reciepeNames);
+
 					Console.WriteLine(foodItem.DisplayText);
+					Console.WriteLine(reciepesDisplayText);
+
 				}
 
 				Console.ReadLine();

@@ -8,6 +8,10 @@ namespace FoodProjectGalleryModel.Models
 {
 	public class FoodItem
 	{
+		public FoodItem()
+		{
+			Reciepes = new List<Reciepe>();
+		}
 		// ID, FoodItemId, FoodItemID
 		public int Id { get; set; }
 		public int DepartmentId { get; set; }
@@ -19,6 +23,7 @@ namespace FoodProjectGalleryModel.Models
 		public decimal? UnitCost { get; set; }
 
 		public Department Department { get; set; }
+		public ICollection<Reciepe> Reciepes { get; set; }
 
 		public string DisplayText
 		{
