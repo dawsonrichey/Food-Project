@@ -14,5 +14,6 @@ namespace FoodProjectGalleryModel.Models
 		public int QuantityOnHand { get; set; }
 		public string Description { get; set; }
 		public DateTime PublishedOn { get; set; }
+		public decimal? UnitCost { get; set; }
 	}
 }
