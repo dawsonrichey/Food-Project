@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace FoodProjectGalleryModel.Models
 {
-	public class Reciepe
+	public class Role
 	{
-		public Reciepe()
-		{
-			FoodItems = new List<FoodItemReciepe>();
-		}
-	
 		public int Id { get; set; }
 		public string Name { get; set; }
-
-		public ICollection<FoodItemReciepe> FoodItems { get; set; }
 	}
 }

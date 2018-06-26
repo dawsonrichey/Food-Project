@@ -10,7 +10,7 @@ namespace FoodProjectGalleryModel.Models
 	{
 		public FoodItem()
 		{
-			Reciepes = new List<Reciepe>();
+			Reciepes = new List<FoodItemReciepe>();
 		}
 		// ID, FoodItemId, FoodItemID
 		public int Id { get; set; }
@@ -23,7 +23,7 @@ namespace FoodProjectGalleryModel.Models
 		public decimal? UnitCost { get; set; }
 
 		public Department Department { get; set; }
-		public ICollection<Reciepe> Reciepes { get; set; }
+		public ICollection<FoodItemReciepe> Reciepes { get; set; }
 
 		public string DisplayText
 		{
@@ -32,6 +32,14 @@ namespace FoodProjectGalleryModel.Models
 				return $"{Department?.Title} #{ItemNumber}";
 			}
 		
+		}
+		public void AddReciepe(Reciepe reciepe, Role role)
+		{
+			Reciepes.Add(new FoodItemReciepe()
+			{
+				Reciepe = reciepe,
+				Role = role
+			});
 		}
 	}
 }

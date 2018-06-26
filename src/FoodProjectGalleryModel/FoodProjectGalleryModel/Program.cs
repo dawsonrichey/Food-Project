@@ -34,6 +34,18 @@ namespace FoodProjectGalleryModel
 				{
 					Name = "PB&J"
 				};
+				var role1 = new Role()
+				{
+					Name = "Dinner"
+				};
+				var role2 = new Role()
+				{
+					Name = "Lunch"
+				};
+				var role3 = new Role()
+				{
+					Name = "Breakfast"
+				};
 				var foodItem1 = new FoodItem()
 				{
 					Department = department1,
@@ -41,8 +53,8 @@ namespace FoodProjectGalleryModel
 					ItemNumber = 1,
 					PublishedOn = DateTime.Today
 				};
-				foodItem1.Reciepes.Add(reciepe1);
-				foodItem1.Reciepes.Add(reciepe2);
+				foodItem1.AddReciepe(reciepe1, role1);
+				foodItem1.AddReciepe(reciepe2, role2);
 
 				var foodItem2 = new FoodItem()
 				{
@@ -51,8 +63,8 @@ namespace FoodProjectGalleryModel
 					ItemNumber = 2,
 					PublishedOn = DateTime.Today
 				};
-				foodItem2.Reciepes.Add(reciepe1);
-				foodItem2.Reciepes.Add(reciepe2);
+				foodItem2.AddReciepe(reciepe1, role1);
+				foodItem2.AddReciepe(reciepe2, role2);
 
 				var foodItem3 = new FoodItem()
 				{
@@ -61,8 +73,8 @@ namespace FoodProjectGalleryModel
 					ItemNumber = 3,
 					PublishedOn = DateTime.Today
 				};
-				foodItem3.Reciepes.Add(reciepe1);
-				foodItem3.Reciepes.Add(reciepe3);
+				foodItem3.AddReciepe(reciepe1, role1);
+				foodItem3.AddReciepe(reciepe3, role2);
 
 
 				context.FoodItems.Add(foodItem1);
@@ -72,17 +84,18 @@ namespace FoodProjectGalleryModel
 
 				var foodItems = context.FoodItems
 					.Include(fi => fi.Department)
-					.Include(fi => fi.Reciepes)
-		
+					.Include(fi => fi.Reciepes.Select(a => a.Reciepe))
+					.Include(fi => fi.Reciepes.Select(a => a.Role))
 					.ToList();
 
 				foreach (var foodItem in foodItems)
 				{
-					var reciepeNames = foodItem.Reciepes.Select(a => a.Name).ToList();
-					var reciepesDisplayText = string.Join(", ", reciepeNames);
+					var reciepeRoleNames = foodItem.Reciepes
+						.Select(a => $"{a.Reciepe.Name} - {a.Role.Name}").ToList();
+					var reciepeRolesDisplayText = string.Join(", ", reciepeRoleNames);
 
 					Console.WriteLine(foodItem.DisplayText);
-					Console.WriteLine(reciepesDisplayText);
+					Console.WriteLine(reciepeRolesDisplayText);
 
 				}
 
