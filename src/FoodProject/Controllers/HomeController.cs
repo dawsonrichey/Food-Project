@@ -22,7 +22,7 @@ namespace FoodProject.Controllers
 
 		public ActionResult Contact()
 		{
-			ViewBag.Message = "Your contact page.";
+			ViewBag.Message = "This is my applications contact page information. This content can be edited by accessing the the HomeController.cs file. This file can be found in the Controller folder.";
 
 			return View();
 		}
