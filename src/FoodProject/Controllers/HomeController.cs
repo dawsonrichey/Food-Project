@@ -15,7 +15,7 @@ namespace FoodProject.Controllers
 
 		public ActionResult About()
 		{
-			ViewBag.Message = "Your application description page.";
+			ViewBag.Message = "Your application description page. I Found my About page message content. I am the smartest boy in the world. It's in the Controller folder in the file named HomeController.cs";
 
 			return View();
 		}
