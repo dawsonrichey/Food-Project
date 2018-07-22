@@ -1,14 +1,7 @@
 ﻿@{
 	Layout = null;
 
-	var foodName = "Carrots";
-	var unitCost = 7;
-	var description = "<p>Carrots are orange. Rabbits love to eat carrots.</p>";
-	var recipes = new string[]{
-		"carrot cake",
-		"carrot stew",
-		"carrot pie"
-	};
+
 }
 
 <!DOCTYPE html>
@@ -20,18 +13,18 @@
 </head>
 <body>
 	<div>
-		<h1>@foodName</h1>
-		<h2>Cost:$@unitCost</h2>
+		<h1>@ViewBag.FoodName</h1>
+		<h2>Cost:$@ViewBag.UnitCost</h2>
 
 		<h5>Description:</h5>
-		<div>@Html.Raw(description)</div>
+		<div>@Html.Raw(ViewBag.Description)</div>
 
-		@if(recipes.Length > 0)
+		@if(ViewBag.Recipes.Length > 0)
 		{
 		<h5>Recipes</h5>
 		<div>
 			<ul>
-				@foreach (var recipe in recipes)
+				@foreach (var recipe in ViewBag.Recipes)
 			{
 				<li>@recipe</li>
 		}
