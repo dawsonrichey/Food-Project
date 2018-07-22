@@ -13,5 +13,22 @@ namespace FoodProject.Models
 		public string DescriptionHtml { get; set; }
 		public Recipe[] Recipes { get; set; }
 		public bool Favorite { get; set; }
+
+		public string DisplayText
+		{
+			get
+			{
+				return FoodName + " $" + UnitCost;
+			}
+		}
+		// series-title-issuenumber.jpg
+		public string CoverImageFileName
+		{
+			get
+			{
+				return FoodName.Replace(" ", "-")
+					.ToLower() + "-" + UnitCost + ".jpg";
+			}
+		}
 	}
 }
