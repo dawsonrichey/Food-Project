@@ -14,9 +14,9 @@ namespace FoodProject.Controllers
 			ViewBag.UnitCost = 7;
 			ViewBag.Description = "<p>Carrots are orange. Rabbits love to eat carrots.</p>";
 			ViewBag.Recipes = new string[]{
-				"carrot cake",
-				"carrot stew",
-				"carrot pie"
+				"Dessert: carrot cake",
+				"Dinner: carrot stew",
+				"Lunch: carrot pie"
 			};
 
 			return View();
