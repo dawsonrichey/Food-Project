@@ -1,17 +1,33 @@
 ﻿@{
-    Layout = null;
+	Layout = null;
+
+	var foodName = "Carrots";
+	var unitCost = 7;
+	var description = "<p>Carrots are orange. Rabbits love to eat carrots.</p>";
+	var recipes = new string[]{
+		"carrot cake",
+		"carrot stew",
+		"carrot pie"};
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
+	<meta name="viewport" content="width=device-width" />
+	<title></title>
 </head>
 <body>
-    <div>
-		<h1>Hello from our View!</h1>
-    </div>
+	<div>
+		<h1>@foodName</h1>
+		<h2>Cost:$@unitCost</h2>
+
+		<h5>Description:</h5>
+		<div>@Html.Raw(description)</div>
+
+		<h5>Recipes</h5>
+		<div>@recipes</div>
+
+	</div>
 </body>
 </html>
