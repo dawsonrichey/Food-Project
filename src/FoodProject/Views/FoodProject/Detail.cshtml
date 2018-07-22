@@ -7,7 +7,8 @@
 	var recipes = new string[]{
 		"carrot cake",
 		"carrot stew",
-		"carrot pie"};
+		"carrot pie"
+	};
 }
 
 <!DOCTYPE html>
@@ -25,8 +26,19 @@
 		<h5>Description:</h5>
 		<div>@Html.Raw(description)</div>
 
+		@if(recipes.Length > 0)
+		{
 		<h5>Recipes</h5>
-		<div>@recipes</div>
+		<div>
+			<ul>
+				@foreach (var recipe in recipes)
+			{
+				<li>@recipe</li>
+		}
+			</ul>
+		</div>
+		}
+
 
 	</div>
 </body>
