@@ -27,5 +27,9 @@ namespace FoodProject.Controllers
 
 			return View();
 		}
+		public string Detail()
+		{
+			return "Hello Word";
+		}
 	}
 }
