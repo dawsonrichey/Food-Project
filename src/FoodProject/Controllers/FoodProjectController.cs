@@ -10,6 +10,12 @@ namespace FoodProject.Controllers
 	{
 		public ActionResult Detail()
 		{
+			var foodProject = new FoodProject();
+			{
+				FoodName = "hgjg";
+			};
+
+
 			ViewBag.FoodName = "Carrots";
 			ViewBag.UnitCost = 7;
 			ViewBag.Description = "<p>Carrots are orange. Rabbits love to eat carrots.</p>";

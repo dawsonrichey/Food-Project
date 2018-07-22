@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace FoodProject.Models
+namespace FoodProjectTwo.Models
 {
-	public class FoodProject
+	public class FoodProjectTwo
 	{
 		public int Id { get; set; }
 		public string FoodName { get; set; }
