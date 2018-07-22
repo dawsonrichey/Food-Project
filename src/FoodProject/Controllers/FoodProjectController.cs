@@ -8,9 +8,14 @@ namespace FoodProject.Controllers
 {
 	public class FoodProjectController : Controller
 	{
-		public string Detail()
+		public ActionResult Detail()
 		{
-			return "Hello Word";
+			if (DateTime.Today.DayOfWeek == DayOfWeek.Friday)
+			{
+				return Redirect("/");
+			}
+			return Content("Hello World");
+
 		}
 	}
 }
