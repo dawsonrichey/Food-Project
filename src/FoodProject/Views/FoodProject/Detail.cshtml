@@ -1,38 +1,26 @@
 ﻿@{
-	Layout = null;
-
-
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Food Project Detail";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-	<meta name="viewport" content="width=device-width" />
-	<title></title>
-</head>
-<body>
-	<div>
-		<h1>@ViewBag.FoodName</h1>
-		<h2>Cost:$@ViewBag.UnitCost</h2>
+<h1>@ViewBag.FoodName</h1>
+<h2>Cost:$@ViewBag.UnitCost</h2>
 
-		<h5>Description:</h5>
-		<div>@Html.Raw(ViewBag.Description)</div>
+<h5>Description:</h5>
+<div>@Html.Raw(ViewBag.Description)</div>
 
-		@if(ViewBag.Recipes.Length > 0)
-		{
-		<h5>Recipes</h5>
-		<div>
-			<ul>
-				@foreach (var recipe in ViewBag.Recipes)
-			{
-				<li>@recipe</li>
-		}
-			</ul>
-		</div>
-		}
+@if(ViewBag.Recipes.Length > 0)
+{
+<h5>Recipes</h5>
+<div>
+	<ul>
+		@foreach (var recipe in ViewBag.Recipes)
+	{
+		<li>@recipe</li>
+}
+	</ul>
+</div>
+}
 
 
-	</div>
-</body>
-</html>
